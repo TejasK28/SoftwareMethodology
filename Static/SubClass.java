@@ -7,7 +7,7 @@ extends SuperClass
 
     int y = 6;
 
-
+    
     public static int getX()
     {
         return x;
