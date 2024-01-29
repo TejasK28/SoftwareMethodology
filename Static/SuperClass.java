@@ -11,4 +11,11 @@ public class SuperClass
     {
         return x;
     }
+    /*
+     * A nonstatic mathod can return a static field
+     */
+    public int getY()
+    {
+        return y;
+    }
 }
