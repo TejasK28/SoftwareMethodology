@@ -15,6 +15,24 @@ public class Main {
          * in problem set 1 where this was possible
          */
         //System.out.println(a.getSomething());
+
+
+        /*
+         * The following is a test to see how a poblem on the pset would work
+         */
+
+         G ag = new H();
+         ag.g = 15;
+
+         G bg = new G();
+         bg.g= 15;
+
+         if(ag.equals(bg))
+            System.out.println("10");
+         else
+            System.out.println("20");
+
+
     }
     
 }
