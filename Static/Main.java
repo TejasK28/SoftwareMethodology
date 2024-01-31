@@ -17,5 +17,9 @@ public class Main
              */
             System.out.println(c.getY());
 
+            /*
+             * If we have a static method, we don't
+             * have any kind of dynamic binding
+             */
     }
 }

@@ -1,6 +1,6 @@
 package Default;
 
-public class Tiger
+public class Lion 
 {
     
 }
