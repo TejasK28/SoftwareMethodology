@@ -2,32 +2,16 @@ package AccessTest;
 
 public class B extends A
 {
-    public void print()
+   
+    public void method2()
     {
-        x = "Helo";
-        System.out.println(x);
-    }
-    public void printx()
-    {
-        System.out.println(x);
-    }
-
-    public void change()
-    {
-        super.x = "!!!";
+        System.out.println("subclass m2");
     }
 
     public static void main(String[] args)
     {
-       B b = new B();
-       C c = new C();
-
-       b.print();
-       c.print();
-       b.printx();
-       b.change();
-       b.printx();
-       c.printx();
+       A a = new B();
+       a.method1();
     }
     
 }
