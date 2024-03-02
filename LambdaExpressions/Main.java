@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.function.Consumer;
 import java.util.*;
 
 public class Main 
@@ -16,10 +17,11 @@ public class Main
          * - can't create a class from it
          */
 
-        IntPicker testPick = new IntPicker() {
+        IntPicker evenPicker = new IntPicker() {
             public void pick(int i)
             {
-                System.out.println(i);
+                if(i % 2 == 0)
+                    System.out.println(i);
             }
         };
 
@@ -31,13 +33,9 @@ public class Main
 
 
         /*
-         * What I'm doing here is skipping by using stream and for each
-         * to show how we can take in an input and print out the integer
          * 
-         * hence an example of a lambda expressions being an implementation
-         * of a functional interface
          */
-        list.stream().forEach(i -> System.out.println(i));
+        list.forEach(i -> System.out.println(i));
 
 
 
