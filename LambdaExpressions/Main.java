@@ -33,9 +33,16 @@ public class Main
 
 
         /*
-         * 
+         * I'm going to test the square interface 
          */
-        list.forEach(i -> System.out.println(i));
+
+        Square getAreaLambda = (int s) -> {return s*s;};
+
+        for(int i : list)
+        {
+            System.out.println(getAreaLambda.getArea(i));
+        }
+
 
 
 
