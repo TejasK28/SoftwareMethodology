@@ -1,5 +1,6 @@
 import java.util.Arrays;
 import java.util.function.Consumer;
+import java.util.function.Function;
 import java.util.*;
 
 public class Main 
@@ -42,6 +43,46 @@ public class Main
         {
             System.out.println(getAreaLambda.getArea(i));
         }
+
+        /*
+            I'm going to do some tests with the consumer functional interface
+
+            We can see that the consumer functional interface is implemented
+         */ 
+
+         System.out.println("[CONSUMER]");
+
+         Consumer<Integer> consumer = (i) -> System.out.println(i);
+
+         for(int i : list)
+            consumer.accept(i);
+
+
+        /*
+         * We can also use method references
+         * 
+         * The idea behind this is that the consumer we created already exists as System.out.println()
+         */
+
+         System.out.println("[METHOD REFERENCE]");
+         list.forEach(System.out::println);
+
+         /*
+          * Now I'm going to try out the Function interface
+          */
+          System.out.println("[FUNCTION]");
+          List<String> strList =  Arrays.asList("Hellow", "world", "!");
+          Function<String, Integer> getLength = (String s) -> s.length();
+
+          for(String s : strList)
+            System.out.println(getLength.apply(s));
+
+         
+
+
+        
+
+
 
 
 
