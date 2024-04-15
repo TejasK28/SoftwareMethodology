@@ -13,6 +13,9 @@ public class Subcl extends Supercl
      */
     int y = 5;
 
+
+    int a = 10;
+
     
 
 

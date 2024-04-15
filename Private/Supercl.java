@@ -28,6 +28,14 @@ public class Supercl
         mpriv();
     }
 
+
+    int a = 5;
+
+    public int getA()
+    {
+        return a;
+    }
+
     public static void main(String[] args)
     {
         new Supercl().mpub();

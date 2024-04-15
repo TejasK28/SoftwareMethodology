@@ -29,6 +29,11 @@ public class main
         System.out.println(sub.y);
 
 
+        Supercl sprcl = new Subcl();
+
+        System.out.println(sprcl.getA());
+
+
 
 
         System.out.println("End of Program");
