@@ -192,9 +192,118 @@ public class Streams
               */
 
               Stream.generate(Math::random).limit(5).forEach(System.out::println);
-            
 
-              
+
+            List<Integer> list = Arrays.asList(1,2,3,4,5,6,7,8,9,10);
+
+
+            /*
+             * Notice how the more complicated reduce return an int
+             */
+            int x = list.stream().reduce(0, (a,b) -> a+b);
+
+            System.out.println("THE SUM OF ALL INTS IS: " + x);
+
+
+            /*
+             * How we find the # of characters
+             */
+
+            List<String> poem = Arrays.asList("First", 
+                                "Second",
+                                "Third",
+                                "Fourth",
+                                "Fifth");    
+                                
+            Optional<Integer> o = poem.stream()
+                    .map(line -> line.split("").length).reduce(Integer::sum);
+
+           
+
+            poem.stream()
+                    .map(line -> line.split("").length).reduce(Integer::sum)
+                    .ifPresent(System.out::println);
+
+
+
+
+        /*
+         * Reduce on an intStream
+         */
+
+        IntStream is = IntStream.rangeClosed(2,10);
+        int fact = is.reduce(1,(a,b) -> a+b);
+
+        System.out.println("THE SUM OF THE INTS IS: " + fact);
+
+        /*
+         * We can also map to int
+         */
+
+        System.out.println("MAP TO INT: " + poem.stream()
+                        .mapToInt(line -> line.split("").length)
+                        .reduce(0, (a,b) -> a + b));
+
+
+
+        /*
+         * Now we do a string [][] arrays as list
+         * 
+         * We see distinct in action
+         */
+
+         String[][] cars =
+        {
+        {"Honda","Civic","2019"},
+        {"Toyota","Camry","2019"},
+        {"Ford","Fusion","2019"},
+        {"Subaru","Forrester","2019"},
+        {"Honda","Accord","2019"},
+        {"Ford","Focus","2019"},
+        {"Honda","Pilot","2019"}
+        };
+
+        Stream<String[]> strArr = Arrays.stream(cars);// returns a Stream<String[]>
+
+        Stream<String> namesOfCars = strArr.map(m -> m[0]).distinct();
+
+        namesOfCars.forEach(System.out::println);
+
+                
+
+        /*
+         * will return a Stream<int[]>
+         */
+
+        List<Integer> l1 = Arrays.asList(2,3,7,9);
+
+        Stream <int []> l1arr = l1.stream()
+        .map(i -> new int[]{1,i});
+
+        l1arr.forEach(a -> System.out.println(Arrays.toString(a)));
+
+
+        /*
+         * Stream of stream of int []
+         */
+
+        List<Integer> l11 = Arrays.asList(2,3,7,9);
+        List<Integer> l22 = Arrays.asList(4,5,8);
+
+        /*
+         * Notice the int[]
+         */
+        Stream<Stream<int[]>> strmofstrm = l11.stream().map(i -> l22.stream().map(j -> new int[]{i,j}));
+        Stream<int[]> strmofstrmflatmap = l11.stream().flatMap(i -> l22.stream().map(j -> new int[]{i,j}));
+
+
+
+        /*
+         * Flatten strings
+         */
+
+
+
 
 
 
@@ -217,9 +326,6 @@ public class Streams
 
 
         // testing
-
-        //This is my original List<Integer> usuing `Arrays.asList()`
-        List<Integer> list = Arrays.asList(1,2,3,4,5,6,7);
 
         /*
          * Simple stream example where we filter for odd numbers and collect
