@@ -5,6 +5,7 @@ public class Question1 implements Runnable
 
     int min = 0;
     int sec = 0;
+    
     @Override
     public void run()
     {

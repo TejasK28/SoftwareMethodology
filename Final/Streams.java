@@ -298,9 +298,57 @@ public class Streams
 
 
 
+         /*
+          * We see a general groupingBy, rmb that groupingBy returns a map
+          */
+        Map<Movie.Genre, List<Movie>> map = movies.stream()
+            .collect(Collectors.groupingBy(Movie::getCategory));
+
+        System.out.println(map);
+
+
+
+        /* 
+         * boxed
+        */
+
+        System.out.println("THE SUM IS: " + IntStream.rangeClosed(1,10).boxed().reduce(0, (a,b) -> a+b));
+
+
+
         /*
-         * Flatten strings
+         * THis is an example of mapping
          */
+        Map<Movie.Genre, Set<Integer>> mapping = movies.stream().collect(Collectors.groupingBy(Movie::getCategory, Collectors.mapping(Movie::getYear, Collectors.toSet())));
+
+        System.out.println(mapping);
+
+
+        /*
+         * maxby gets the max movie
+         */
+
+         Optional<Movie> max =movies.stream().collect(Collectors.maxBy(Comparator.comparingInt(Movie::getRating)));
+        max.ifPresent(m -> System.out.println("THE MAX MOVIE IS: " + max.get().getName()));
+
+
+
+        /*
+         * Coutning
+         */
+
+         System.out.println("NUMBR OF MOVIES: " +movies.stream().collect(Collectors.counting()));
+         System.out.println("NUMBR OF MOVIES: " +movies.stream().count());
+
+
+         
+
+
+
+
+
+
+        
 
 
 
